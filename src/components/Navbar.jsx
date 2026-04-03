@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
-import profileImg from '../assets/amarjeet.jpg'; // make sure the file exists
+import profileImg from '../assets/amarjeetmaurya.png'; // make sure the file exists
 
 const navItems = [
   { path: '/home', label: 'Home' },
@@ -30,7 +30,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo / Name with Profile Photo */}
           <Link to="/home" className="flex items-center space-x-3" onClick={closeMenu}>
-            <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-purple-400">
+            <div className="w-12 h-12 rounded-full overflow-hidden border-purple-400">
               <img
                 src={profileImg}
                 alt="Amarjeet Maurya"

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FiGithub, FiLinkedin, FiTwitter, FiCode, FiCamera, FiStar } from 'react-icons/fi';
 import Scene from '../components/Scene';
 import FloatingShape from '../components/FloatingShape';
-import profileImg from '../assets/amarjeet.jpg'; 
+import profileImg from '../assets/amarjeetmaurya.png'; 
 
 // Glowing floating icons configuration
 const floatingItems = [
@@ -104,7 +104,7 @@ export default function Landing() {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.8, type: 'spring', stiffness: 200 }}
-            className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-purple-400 shadow-xl"
+            className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-purple-400 shadow-xl"
           >
             <img src={profileImg} alt="Amarjeet Maurya" className="w-full h-full object-cover" />
             <div className="w-full h-full bg-gray-700 flex items-center justify-center text-4xl text-purple-400">

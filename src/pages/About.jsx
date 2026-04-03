@@ -51,7 +51,7 @@ export default function About() {
           transition={{ delay: 0.2 }}
           className="space-y-6"
         >
-          <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
             I’m a passionate Full Stack Developer with a strong foundation in building scalable, responsive, and user-centric web applications. I work across both frontend and backend technologies, including HTML, CSS, JavaScript, React.js, Node.js, and MongoDB, allowing me to develop complete end-to-end solutions.
 
             Currently, I’m gaining hands-on experience through my web development internship at UptoSkills, where I contribute to real-world projects, collaborate with teams, and continuously refine my technical and problem-solving skills. I have also worked on projects like a collaborative code editor and full-stack applications, focusing on performance, clean architecture, and seamless user experience.
@@ -65,7 +65,7 @@ export default function About() {
           <div className="pt-4">
             <h3 className="text-xl font-semibold mb-3">Interests</h3>
             <div className="flex flex-wrap gap-2">
-              {['Web Development', '3D Graphics', 'UI/UX', 'Open Source', 'Gaming'].map((item) => (
+              {['Web Development', 'AI/ML', 'UI/UX', 'Data Analysis', 'DSA'].map((item) => (
                 <span key={item} className="px-3 py-1 bg-purple-500/20 rounded-full text-sm">
                   {item}
                 </span>
