@@ -1,6 +1,7 @@
 const express = require('express');
 const Profile = require('../models/Profile');
 const auth = require('../middleware/auth');
+const { validateProfile, handleValidationErrors } = require('../validation/profileValidator');
 const router = express.Router();
 
 // GET profile (public)
@@ -15,7 +16,7 @@ router.get('/', async (req, res) => {
 });
 
 // PUT update profile (admin only)
-router.put('/', auth, async (req, res) => {
+router.put('/', auth, validateProfile, handleValidationErrors, async (req, res) => {
   try {
     const profile = await Profile.findOneAndUpdate({}, req.body, { new: true, upsert: true });
     res.json(profile);

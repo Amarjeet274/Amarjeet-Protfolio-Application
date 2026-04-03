@@ -4,6 +4,18 @@ const { body, validationResult } = require('express-validator');
 
 const router = express.Router();
 
+// Utility function to escape HTML and prevent XSS
+const escapeHtml = (text) => {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;',
+  };
+  return text.replace(/[&<>"']/g, (m) => map[m]);
+};
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -32,11 +44,11 @@ router.post(
         from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
         to: process.env.RECIPIENT_EMAIL,
         replyTo: email,
-        subject: `New message from ${name}`,
+        subject: `New message from ${escapeHtml(name)}`,
         html: `
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Message:</strong> ${message}</p>
+          <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+          <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+          <p><strong>Message:</strong> ${escapeHtml(message).replace(/\n/g, '<br>')}</p>
         `,
       });
 

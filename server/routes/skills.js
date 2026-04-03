@@ -1,6 +1,7 @@
 const express = require('express');
 const Skill = require('../models/Skill');
 const auth = require('../middleware/auth');
+const { validateSkill, handleValidationErrors } = require('../validation/skillValidator');
 const router = express.Router();
 
 // GET all skills (public)
@@ -14,7 +15,7 @@ router.get('/', async (req, res) => {
 });
 
 // POST new skill (admin only)
-router.post('/', auth, async (req, res) => {
+router.post('/', auth, validateSkill, handleValidationErrors, async (req, res) => {
   try {
     const skill = new Skill(req.body);
     await skill.save();
@@ -25,12 +26,13 @@ router.post('/', auth, async (req, res) => {
 });
 
 // PUT update skill (admin only)
-router.put('/:id', auth, async (req, res) => {
+router.put('/:id', auth, validateSkill, handleValidationErrors, async (req, res) => {
   try {
     const skill = await Skill.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!skill) return res.status(404).json({ error: 'Skill not found' });
     res.json(skill);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to update' });
+    res.status(500).json({ error: 'Failed to update skill' });
   }
 });
 

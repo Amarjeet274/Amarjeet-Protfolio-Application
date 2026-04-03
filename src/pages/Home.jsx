@@ -14,6 +14,7 @@ const navTiles = [
   { to: '/about', label: 'About', color: 'from-blue-500 to-cyan-500' },
   { to: '/skills', label: 'Skills', color: 'from-green-500 to-emerald-500' },
   { to: '/projects', label: 'Projects', color: 'from-purple-500 to-pink-500' },
+  { to: '/achievements', label: 'Achievements', color: 'from-yellow-500 to-orange-500' },
   { to: '/contact', label: 'Contact', color: 'from-orange-500 to-red-500' },
 ];
 

@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Skills from './pages/Skills';
 import Projects from './pages/Projects';
+import Achievements from './pages/Achievements';
 import Contact from './pages/Contact';
 
 // Admin Pages
@@ -31,6 +32,7 @@ function PublicAnimatedRoutes() {
         <Route path="/about" element={<Layout><About /></Layout>} />
         <Route path="/skills" element={<Layout><Skills /></Layout>} />
         <Route path="/projects" element={<Layout><Projects /></Layout>} />
+        <Route path="/achievements" element={<Layout><Achievements /></Layout>} />
         <Route path="/contact" element={<Layout><Contact /></Layout>} />
       </Routes>
     </AnimatePresence>

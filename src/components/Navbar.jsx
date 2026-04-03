@@ -1,15 +1,17 @@
-import { Link as ScrollLink } from 'react-scroll'; // for smooth scroll
+import { Link as ScrollLink } from 'react-scroll';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
-import profileImg from '../assets/amarjeetmaurya.png'; // make sure the file exists
+import profileImg from '../assets/amarjeetmaurya.png';
+import resumePDF from '/Amarjeet_Resume.pdf';
 
 const navItems = [
   { path: '/home', label: 'Home' },
   { path: '/about', label: 'About' },
   { path: '/skills', label: 'Skills' },
   { path: '/projects', label: 'Projects' },
+  { path: '/achievements', label: 'Achievements' },
   { path: '/contact', label: 'Contact' },
 ];
 
@@ -53,8 +55,7 @@ export default function Navbar() {
                 key={item.path}
                 to={item.path}
                 className={({ isActive }) =>
-                  `text-sm font-medium transition-colors hover:text-purple-400 ${
-                    isActive ? 'text-purple-400' : 'text-gray-700 dark:text-gray-300'
+                  `text-sm font-medium transition-colors hover:text-purple-400 ${isActive ? 'text-purple-400' : 'text-gray-700 dark:text-gray-300'
                   }`
                 }
               >
@@ -63,8 +64,17 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Theme Toggle & Mobile Menu Button */}
+          {/* Theme Toggle, Resume Button & Mobile Menu Button */}
           <div className="flex items-center space-x-4">
+            {/* Resume download button - text version */}
+            <a
+              href={resumePDF}
+              download="Amarjeet_Maurya_Resume.pdf"
+              className="text-sm p-2 bg-purple-600 dark:bg-gray-700 border border-purple-400 rounded-full text-white dark:text-white hover:bg-gray-300/20 hover:text-black dark:hover:text-white dark:hover:bg-gray-600/20 transition"
+              aria-label="Download Resume"
+            >
+              My Resume
+            </a>
             <ThemeToggle />
             <button
               onClick={toggleMenu}
@@ -115,10 +125,9 @@ export default function Navbar() {
                   to={item.path}
                   onClick={closeMenu}
                   className={({ isActive }) =>
-                    `block px-3 py-2 rounded-md text-base font-medium transition-colors hover:text-purple-400 ${
-                      isActive
-                        ? 'text-purple-400 bg-purple-500/10'
-                        : 'text-gray-700 dark:text-gray-300'
+                    `block px-3 py-2 rounded-md text-base font-medium transition-colors hover:text-purple-400 ${isActive
+                      ? 'text-purple-400 bg-purple-500/10'
+                      : 'text-gray-700 dark:text-gray-300'
                     }`
                   }
                 >
