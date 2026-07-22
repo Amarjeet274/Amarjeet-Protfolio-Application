@@ -6,7 +6,7 @@ import Counter from '../components/Counter';
 
 const stats = [
   { label: 'Projects', value: '2+', icon: FiCode },
-  { label: 'Experience', value: '3+', icon: FiUser },
+  { label: 'Experience', value: '0', icon: FiUser },
   { label: 'Skills', value: '20+', icon: FiCpu },
 ];
 
