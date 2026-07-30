@@ -1,3 +1,11 @@
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Server-generated uploads
+server/uploads/
+
 # Logs
 logs
 *.log
