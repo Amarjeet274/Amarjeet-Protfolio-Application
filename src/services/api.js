@@ -1,8 +1,3 @@
-/**
- * API Service Layer - Centralized API calls
- * Reduces code duplication and provides consistent error handling
- */
-
 const API_BASE = import.meta.env.VITE_API_URL;
 
 if (!API_BASE) {
@@ -10,12 +5,10 @@ if (!API_BASE) {
 }
 
 class APIService {
-  /**
-   * Make an API call with proper headers and error handling
-   */
+  /**Make an API call with proper headers and error handling*/
   static async call(endpoint, options = {}) {
     const url = `${API_BASE}${endpoint}`;
-    
+
     try {
       const response = await fetch(url, {
         headers: {

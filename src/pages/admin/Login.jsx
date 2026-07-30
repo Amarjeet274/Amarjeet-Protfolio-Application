@@ -11,9 +11,16 @@ export default function AdminLogin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const apiUrl = import.meta.env.VITE_API_URL;
+    if (!apiUrl) {
+      toast.error('Admin API is not configured. Set VITE_API_URL and redeploy.');
+      return;
+    }
+
     setLoading(true);
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
+      const res = await fetch(`${apiUrl}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
