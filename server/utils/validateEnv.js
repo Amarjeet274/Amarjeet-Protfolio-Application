@@ -1,12 +1,12 @@
 const requiredEnvVars = [
-  'MONGO_URI',
-  'JWT_SECRET',
-  'EMAIL_USER',
-  'EMAIL_PASS',
-  'RECIPIENT_EMAIL',
-  'CLOUDINARY_CLOUD_NAME',
-  'CLOUDINARY_API_KEY',
-  'CLOUDINARY_API_SECRET',
+'MONGO_URI',
+'JWT_SECRET',
+'EMAIL_USER',
+'EMAIL_PASS',
+'RECIPIENT_EMAIL',
+'CLOUDINARY_CLOUD_NAME',
+'CLOUDINARY_API_KEY',
+'CLOUDINARY_API_SECRET',
 ];
 
 const validateEnvironment = () => {
@@ -18,8 +18,8 @@ const validateEnvironment = () => {
     console.error('\nPlease add these to your .env file');
     process.exit(1);
   }
-  
-  console.log('All required environment variables are set');
+
+  console.log('Core environment variables are set');
 };
 
 module.exports = validateEnvironment;

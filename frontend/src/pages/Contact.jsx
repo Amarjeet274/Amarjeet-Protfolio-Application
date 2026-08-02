@@ -15,9 +15,15 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data) => {
+    const apiUrl = import.meta.env.VITE_API_URL;
+    if (!apiUrl) {
+      toast.error('Contact API is not configured. Set VITE_API_URL and redeploy.');
+      return;
+    }
+
     setLoading(true);
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
+      const res = await fetch(`${apiUrl}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),

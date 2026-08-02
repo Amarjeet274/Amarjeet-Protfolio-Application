@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { FaReact, FaNodeJs, FaGitAlt, FaDocker } from 'react-icons/fa';
 import { SiMongodb, SiTailwindcss, SiJavascript, SiPython, SiFigma, SiVite, SiHtml5 } from 'react-icons/si';
 
+
 const skillCategories = [
   {
     name: 'Frontend',
@@ -15,7 +16,7 @@ const skillCategories = [
   },
   {
     name: 'Tools',
-    skills: ['Git', 'Docker', 'Figma', 'Vite'],
+    skills: ['Git', 'Figma', 'Vite'],
     color: '#f59e0b',
   },
 ];

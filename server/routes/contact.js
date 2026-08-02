@@ -39,6 +39,12 @@ router.post(
 
     const { name, email, message } = req.body;
 
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || !process.env.RECIPIENT_EMAIL) {
+      return res.status(503).json({
+        error: 'Contact email is not configured. Add EMAIL_USER, EMAIL_PASS, and RECIPIENT_EMAIL to the server environment.',
+      });
+    }
+
     try {
       await transporter.sendMail({
         from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,

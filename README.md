@@ -50,6 +50,7 @@ A full-stack, 3D-animated personal portfolio built with **React + Three.js** on 
 
 ```
 My-Portfolio-Application/
+├──frontend/
 ├── public/               # Static assets (resume, favicon, etc.)
 ├── src/                  # Frontend source
 │   ├── assets/           # Images, 3D models, etc.
@@ -117,6 +118,23 @@ CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 ```
 
+`MONGO_URI` and `JWT_SECRET` are required for the API and admin login. Create the
+admin account once after adding `ADMIN_USERNAME` and `ADMIN_PASSWORD`:
+
+```env
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=use_a_strong_password
+```
+
+```bash
+cd server
+npm run seed
+```
+
+The contact form does not need a MongoDB collection: it sends mail through
+Nodemailer. It requires `EMAIL_USER`, `EMAIL_PASS` (a Gmail app password), and
+`RECIPIENT_EMAIL` on the deployed server.
+
 Run the backend:
 
 ```bash
@@ -128,12 +146,17 @@ The API will be available at `http://localhost:5000`.
 
 ### 3. Set up the frontend
 
-From the project root:
+From `frontend/`:
 
 ```bash
+cd frontend
 npm install
 npm run dev
 ```
+
+Copy `frontend/.env.example` to `frontend/.env`. For a deployed frontend,
+`VITE_API_URL` must be the public URL of the deployed backend, not
+`http://localhost:5000`.
 
 The app will be available at `http://localhost:5173`.
 
@@ -165,8 +188,8 @@ node seed.js
 The frontend is deployed on **Vercel**: [amarjeet-maurya-portfolio.vercel.app](https://amarjeet-maurya-portfolio.vercel.app/)
 
 To deploy your own copy:
-1. Deploy `server/` to a Node-friendly host (Render, Railway, etc.) and set the environment variables listed above.
-2. Deploy the root frontend to Vercel, setting an environment variable pointing to your deployed API URL.
+1. Deploy `server/` to a Node-friendly host (Render, Railway, etc.) and set the environment variables listed above. Set `FRONTEND_URL` to the exact deployed frontend origin.
+2. Deploy `frontend/` to Vercel, setting `VITE_API_URL` to the deployed backend URL (for example, `https://your-api.example.com`). Rebuild/redeploy after changing it.
 3. Update `FRONTEND_URL` in the backend `.env` to match your deployed frontend URL (for CORS).
 
 ---
