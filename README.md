@@ -49,125 +49,39 @@ A full-stack, 3D-animated personal portfolio built with **React + Three.js** on 
 ## 📁 Project Structure
 
 ```
-My-Portfolio-Application/
-├──frontend/
-├── public/               # Static assets (resume, favicon, etc.)
-├── src/                  # Frontend source
-│   ├── assets/           # Images, 3D models, etc.
-│   ├── components/       # Reusable UI components
-│   ├── hooks/            # Custom React hooks
-│   ├── layouts/          # Layout wrappers
-│   ├── pages/            # Route-level pages (Home, About, Projects, Contact...)
-│   │   └── admin/        # Admin dashboard pages (Login, Dashboard, Projects, Skills, Profile)
-│   ├── services/         # API service calls
-│   ├── utils/            # Helper utilities
-│   ├── App.jsx
-│   └── main.jsx
-├── server/               # Backend (Express API)
-│   ├── config/           # Cloudinary config
-│   ├── middleware/       # Auth, upload, error handling
-│   ├── models/           # Mongoose models (User, Profile, Project, Skill)
-│   ├── routes/           # API routes (auth, profile, projects, skills, contact)
-│   ├── validation/       # Request validators
-│   ├── utils/            # Env validation
-│   ├── seed.js           # Database seeding script
-│   └── index.js          # Server entry point
-├── package.json          # Frontend dependencies
-└── vite.config.js
+Amarjeet-Maurya-portfolio/
+├── frontend/                         # React + Vite client
+│   ├── public/                       # Static assets, project images, and resume
+│   ├── src/
+│   │   ├── assets/                   # Local images
+│   │   ├── components/               # Reusable UI components
+│   │   │   └── admin/                # Admin route protection
+│   │   ├── hooks/                    # Custom React hooks
+│   │   ├── layouts/                  # Shared page layout
+│   │   ├── pages/                    # Public pages
+│   │   │   └── admin/                # Admin dashboard pages
+│   │   ├── services/                 # API client
+│   │   ├── utils/                    # Shared constants and utilities
+│   │   ├── App.jsx                   # Application routes
+│   │   └── main.jsx                  # Client entry point
+│   ├── package.json                  # Frontend dependencies and scripts
+│   └── vite.config.js
+├── server/                           # Express API
+│   ├── config/                       # Cloudinary configuration
+│   ├── middleware/                   # Auth, upload, and error handling
+│   ├── models/                       # Mongoose data models
+│   ├── routes/                       # API endpoints
+│   ├── utils/                        # Environment validation
+│   ├── validation/                   # Request validators
+│   ├── index.js                      # Server entry point
+│   ├── seed.js                       # Database seeding script
+│   └── package.json                  # Backend dependencies and scripts
+├── dist/                             # Generated frontend build output
+└── README.md
 ```
 
 ---
 
-## ⚙️ Getting Started
-
-### Prerequisites
-
-- Node.js (v18+ recommended)
-- A MongoDB database (local or Atlas)
-- A Cloudinary account (for image uploads)
-- A Gmail (or SMTP) account for sending contact form emails
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/Amarjeet274/My-Portfolio-Application.git
-cd My-Portfolio-Application
-```
-
-### 2. Set up the backend
-
-```bash
-cd server
-npm install
-```
-
-Create a `.env` file inside `server/` with the following variables:
-
-```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-FRONTEND_URL=http://localhost:5173
-
-EMAIL_USER=your_email@gmail.com
-EMAIL_PASS=your_email_app_password
-RECIPIENT_EMAIL=where_contact_messages_should_go@example.com
-
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-```
-
-`MONGO_URI` and `JWT_SECRET` are required for the API and admin login. Create the
-admin account once after adding `ADMIN_USERNAME` and `ADMIN_PASSWORD`:
-
-```env
-ADMIN_USERNAME=admin
-ADMIN_PASSWORD=use_a_strong_password
-```
-
-```bash
-cd server
-npm run seed
-```
-
-The contact form does not need a MongoDB collection: it sends mail through
-Nodemailer. It requires `EMAIL_USER`, `EMAIL_PASS` (a Gmail app password), and
-`RECIPIENT_EMAIL` on the deployed server.
-
-Run the backend:
-
-```bash
-npm run dev     # development (with nodemon)
-npm start        # production
-```
-
-The API will be available at `http://localhost:5000`.
-
-### 3. Set up the frontend
-
-From `frontend/`:
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Copy `frontend/.env.example` to `frontend/.env`. For a deployed frontend,
-`VITE_API_URL` must be the public URL of the deployed backend, not
-`http://localhost:5000`.
-
-The app will be available at `http://localhost:5173`.
-
-### 4. (Optional) Seed the database
-
-```bash
-cd server
-node seed.js
-```
-
----
 
 ## 🔌 API Overview
 
