@@ -65,6 +65,9 @@ Amarjeet-Maurya-portfolio/
 │   │   ├── App.jsx                   # Application routes
 │   │   └── main.jsx                  # Client entry point
 │   ├── package.json                  # Frontend dependencies and scripts
+│   ├── eslint.config.js               # ESLint configuration
+│   ├── postcss.config.js              # PostCSS configuration
+│   ├── tailwind.config.js             # Tailwind CSS configuration
 │   └── vite.config.js
 ├── server/                           # Express API
 │   ├── config/                       # Cloudinary configuration
@@ -75,8 +78,8 @@ Amarjeet-Maurya-portfolio/
 │   ├── validation/                   # Request validators
 │   ├── index.js                      # Server entry point
 │   ├── seed.js                       # Database seeding script
+│   ├── vercel.json                   # Vercel deployment configuration
 │   └── package.json                  # Backend dependencies and scripts
-├── dist/                             # Generated frontend build output
 └── README.md
 ```
 
